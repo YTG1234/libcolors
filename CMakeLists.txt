@@ -2,6 +2,9 @@ cmake_minimum_required (VERSION 3.5)
 
 project (libcolors VERSION 1.0)
 
+# Options
+option (TEST_LIB "Generate tests" OFF)
+
 # Variables
 set (LIB_NAME "colors")
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Werror")
@@ -15,3 +18,8 @@ target_include_directories (${LIB_NAME} PUBLIC include ${CMAKE_CURRENT_BINARY_DI
 
 set_property (TARGET ${LIB_NAME} PROPERTY CXX_STANDARD 17)
 generate_export_header (${LIB_NAME} BASE_NAME colors)
+
+if (TEST_LIB)
+    enable_testing ()
+    add_subdirectory (test)
+endif()

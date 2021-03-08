@@ -2,3 +2,6 @@
 
 cd out
 make
+if [ ! -z "$1" ]; then
+    make test
+fi

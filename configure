@@ -2,4 +2,13 @@
 
 mkdir -p out
 cd out
-cmake .. -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=release
+
+[[ ! -z $1 ]] && test=true
+
+shift 1
+
+if [ -z $test ]; then
+    cmake .. -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=release "$@"
+else
+    cmake .. -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=release -DTEST_LIB=ON "$@"
+fi
