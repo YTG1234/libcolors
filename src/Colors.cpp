@@ -31,28 +31,28 @@ Color Color::brighten() const {
 Color Color::darken() const {
     std::vector<int> newColors = this->numbers;
     newColors[2] = 0;
-    
+
     return Color(newColors);
 }
 
 Color Color::fg() const {
     std::vector<int> newColors = this->numbers;
     newColors[1] = _internal::FG;
-    
+
     return Color(newColors);
 }
 
 Color Color::bg() const {
     std::vector<int> newColors = this->numbers;
     newColors[1] = _internal::BG;
-    
+
     return Color(newColors);
 }
 
 Color Color::attr(const Attributes& attr) const {
     std::vector<int> newColors = numbers;
     newColors.push_back(attr);
-    
+
     return Color(newColors);
 }
 
