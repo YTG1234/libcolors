@@ -45,3 +45,6 @@ _deps
 *.out
 *.app
 
+### KDevelop ###
+*.kdev*
+out/
